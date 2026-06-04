@@ -5,9 +5,13 @@ from database import SessionLocal
 from sqlalchemy.orm import Session
 from fastapi import Depends
 from models import Todo
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
+
+app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,7 +31,10 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/")
+async def home():
 
+    return FileResponse("frontend/index.html")
 
 @app.get("/todos")
 def get_todos(db: Session = Depends(get_db)):
