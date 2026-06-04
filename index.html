@@ -1,28 +1,53 @@
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
 
     </head>
     <body>
-        <textarea id ="val"></textarea>
+
+    <div class="container">
+
+
+        <textarea id="val"></textarea>
+
         <select id="opt">
-            <option value = "">Select an option</option>
-            <option value = "Low">Low</option>
-            <option value = "Medium">Medium</option>
-            <option value = "High">High</option>
+            <option value="">Select Priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
         </select>
-        <br>
-        <button id = "btn">Add</button>
-        <br>
-        <button id = "all">All</button>
-        <button id = "act">Active</button>
-        <button id = "done">done</button>
+
         <input type="date" id="date">
-        <h3 id = "high">HIGH</h3>  
-    
-        <br>
-        <h3 id = "med" >MEDIUM</h3>
-        <br>
-        <h3 id = "lo" >LOW</h3>
-        <script src = "script.js"></script>
-    </body>
+
+        <button id="btn">Add</button>
+
+        <div class="filters">
+            <button id="all">All</button>
+            <button id="act">Active</button>
+            <button id="done">Done</button>
+        </div>
+
+        <div class="sections">
+
+            <div class="box">
+                <h3>HIGH</h3>
+                <ul id="high"></ul>
+            </div>
+
+            <div class="box">
+                <h3>MEDIUM</h3>
+                <ul id="med"></ul>
+            </div>
+
+            <div class="box">
+                <h3>LOW</h3>
+                <ul id="lo"></ul>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
 </html>
